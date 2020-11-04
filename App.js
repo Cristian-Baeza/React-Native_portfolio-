@@ -2,6 +2,8 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View, ScrollView, Image, Dimensions, TouchableOpacity, Slider } from 'react-native';
 import { MaterialCommunityIcons, AntDesign, SimpleLineIcons } from "@expo/vector-icons"
+import { Icon } from 'react-native-elements'
+
 
 const Layout = {
   height: Dimensions.get('window').height,
@@ -82,12 +84,12 @@ export default function App(props) {
         >
           <Image
             source={require("./assets/user.png")}
-            style={{ width: 50, height: 50, borderRadius: 25, marginRight: 16 }}
+            style={{ width: 80, height: 80, borderRadius: 25, marginRight: 16 }}
           />
           <View>
-            <Text style={{ fontSize: 20, color: Colors.white }}>Cristian Baeza
+            <Text style={{ fontSize: 30, color: Colors.white }}>Cristian Baeza
             </Text>
-            <Text style={{ color: Colors.greyish }}>React Native Dev</Text>
+            <Text style={{ color: Colors.greyish }}>Web-Dev/React Native Dev</Text>
           </View>
         </View>
       </View>
@@ -114,7 +116,7 @@ export default function App(props) {
         </View>
         <View style={{ marginVertical: 8 }}>
           <Text style={{ color: Colors.greyish }}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          Currently a full time student doing my last semester at the University of Utah, working full time and attending NuCamp's Full-Stack coding bootcamp. Accepted into CodePlatoon's full time coding bootcamp starting in January 2021.
           </Text>
         </View>
       </View>
@@ -205,7 +207,7 @@ export default function App(props) {
       </ScrollView>
 
 
-{/* STATS CARD  */}
+      {/* STATS CARD  */}
 
       <View
         style={{
@@ -264,7 +266,45 @@ export default function App(props) {
       </View>
 
 
+      {/* FIND ME CARD */}
 
+      <View
+        style={{
+          backgroundColor: Colors.white,
+          marginHorizontal: 32,
+          padding: 20,
+          borderRadius: 20,
+          elevation: 8,
+          marginBottom: 16,
+        }}
+      >
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+            marginVertical: 8
+          }}>
+          <Text>Find Me</Text>
+        </View>
+        <ScrollView horizontal style={{ marginVertical: 8 }}>
+          <Icon
+            name= 'github'
+            type='font-awesome'
+            size={30}
+            style={{ color: Colors.theme }}
+          />
+          <MaterialCommunityIcons
+            name="linkedin"
+            size={30}
+            style={{ color: Colors.theme }}
+          />
+          <MaterialCommunityIcons
+            name='youtube'
+            size={30}
+            style={{ color: Colors.theme }}
+          />
+        </ScrollView>
+      </View>
     </ScrollView>
   );
 }
