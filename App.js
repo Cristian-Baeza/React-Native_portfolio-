@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, ScrollView, Image, Dimensions, TouchableOpacity, Slider } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, Image, Dimensions, TouchableOpacity, Slider, Linking } from 'react-native';
 import { MaterialCommunityIcons, AntDesign, SimpleLineIcons } from "@expo/vector-icons"
 import { Icon } from 'react-native-elements'
 
@@ -13,7 +13,10 @@ const Layout = {
 
 const Colors = {
   theme: "#24685b",
+  //  "#24685b"
   white: "#fff",
+  // "#fff"
+
   greyish: "#a4a4a4"
 };
 
