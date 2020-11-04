@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, ScrollView, Image, Dimensions, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, Image, Dimensions, TouchableOpacity, Slider } from 'react-native';
 import { MaterialCommunityIcons, AntDesign, SimpleLineIcons } from "@expo/vector-icons"
 
 const Layout = {
@@ -14,6 +14,34 @@ const Colors = {
   white: "#fff",
   greyish: "#a4a4a4"
 };
+
+//used map function so i can add skills to here and they
+// will be mapped out in app
+const skillIcons = [
+  "language-html5",
+  "language-css3",
+  "language-javascript",
+  "language-python",
+  "react",
+  "bootstrap"
+]
+
+
+const projects = [
+  {
+    name: "Gym Website",
+    icon: "airballoon"
+  },
+  {
+    name: "Mediation App",
+    icon: "microphone"
+  },
+  {
+    name: "Shopping List",
+    icon: "shopping-music"
+  },
+];
+
 
 
 export default function App(props) {
@@ -64,9 +92,179 @@ export default function App(props) {
         </View>
       </View>
 
-      <View>
-
+      <View
+        style={{
+          backgroundColor: Colors.white,
+          marginHorizontal: 32,
+          padding: 20,
+          borderRadius: 20,
+          elevation: 8,
+          marginBottom: 16,
+          marginTop: -Layout.height * 0.15
+        }}
+      >
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+            marginVertical: 8
+          }}>
+          <Text>Bio</Text>
+          <AntDesign name="user" size={20} />
+        </View>
+        <View style={{ marginVertical: 8 }}>
+          <Text style={{ color: Colors.greyish }}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </Text>
+        </View>
       </View>
+
+      {/* SECOND CARD: SKILLS */}
+
+      <View
+        style={{
+          backgroundColor: Colors.white,
+          marginHorizontal: 32,
+          padding: 20,
+          borderRadius: 20,
+          elevation: 8,
+          marginBottom: 16,
+        }}
+      >
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+            marginVertical: 8
+          }}>
+          <Text>Skills</Text>
+          <MaterialCommunityIcons name="pen" size={20} />
+        </View>
+        <ScrollView horizontal style={{ marginVertical: 8 }}>
+          {skillIcons.map(skill => (
+            <View style={{
+              width: 48,
+              height: 48,
+              borderRadius: 24,
+              borderWidth: 2,
+              borderColor: Colors.theme,
+              justifyContent: 'center',
+              alignItems: 'center',
+              marginHorizontal: 5
+            }}
+            >
+              <MaterialCommunityIcons
+                name={skill}
+                size={30}
+                style={{ color: Colors.theme }}
+              />
+            </View>
+          ))}
+        </ScrollView>
+      </View>
+
+
+      {/* PROJECTS PART  */}
+
+      <ScrollView horizontal>
+        {projects.map(project => (
+          <View
+            key={project.name}
+            style={{
+              backgroundColor: Colors.theme,
+              marginHorizontal: 8,
+              padding: 20,
+              borderRadius: 16,
+              marginBottom: 16,
+              alignItems: "center",
+              width: Layout.width * 0.7
+            }}
+          >
+            <Text style={{ fontSize: 20, color: Colors.white }}>
+              {project.name}
+            </Text>
+            <MaterialCommunityIcons
+              name={project.icon}
+              size={150}
+              style={{ color: Colors.white, marginVertical: 40 }}
+            />
+            <TouchableOpacity>
+              <View
+                style={{
+                  backgroundColor: Colors.white,
+                  borderRadius: 10,
+                  paddingHorizontal: 20,
+                  paddingVertical: 10
+                }}
+              >
+                <Text style={{ color: Colors.theme }}>View Project</Text>
+              </View>
+            </TouchableOpacity>
+          </View>
+        ))}
+      </ScrollView>
+
+
+{/* STATS CARD  */}
+
+      <View
+        style={{
+          backgroundColor: Colors.white,
+          marginHorizontal: 32,
+          padding: 20,
+          borderRadius: 20,
+          elevation: 8,
+          marginBottom: 16,
+        }}
+      >
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+            marginVertical: 8
+          }}>
+          <Text>Stats</Text>
+          <MaterialCommunityIcons name="trending-up" size={20} />
+        </View>
+        <View
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'center',
+            marginVertical: 8,
+            alignItems: 'flex-end'
+          }}
+        >
+          <Text style={{ fontSize: 50, color: Colors.theme }}>10,000</Text>
+          <Text style={{ color: Colors.greyish }}>CUPS OF COFFEE</Text>
+        </View>
+
+        <View
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'center',
+            marginVertical: 8,
+            alignItems: 'flex-end'
+          }}
+        >
+          <Text style={{ color: Colors.greyish }}>PROJECTS DONE</Text>
+          <Text style={{ fontSize: 50, color: Colors.theme }}>10</Text>
+        </View>
+
+        <View
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'center',
+            marginVertical: 8,
+            alignItems: 'flex-end'
+          }}
+        >
+          <Text style={{ fontSize: 50, color: Colors.theme }}>32</Text>
+          <Text style={{ color: Colors.greyish }}>HAPPY CLIENTS</Text>
+        </View>
+      </View>
+
+
+
     </ScrollView>
   );
 }
