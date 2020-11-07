@@ -2,8 +2,8 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View, ScrollView, Image, Dimensions, TouchableOpacity, Slider, Linking } from 'react-native';
 import { MaterialCommunityIcons, AntDesign, SimpleLineIcons } from "@expo/vector-icons"
-import { Icon } from 'react-native-elements'
-import * as WebBrowser from 'expo-web-browser';
+import { Icon, Button } from 'react-native-elements'
+
 
 
 const Layout = {
@@ -13,7 +13,7 @@ const Layout = {
 
 
 const Colors = {
-  theme: "#24685b",
+  theme: "#790606",
   //  "#24685b"
   white: "#fff",
   // "#fff"
@@ -36,15 +36,18 @@ const skillIcons = [
 const projects = [
   {
     name: "Gym Website",
-    icon: "dumbbell"
+    icon: "dumbbell",
+    web: "https://cristian-baeza.github.io"
   },
   {
     name: "Mediation App",
-    icon: "peace"
+    icon: "peace",
+    web: "https://meditateapp.netlify.app/"
   },
   {
     name: "Shopping List",
-    icon: "shopping-music"
+    icon: "shopping-music",
+    web: ""
   },
 ];
 
@@ -93,7 +96,7 @@ export default function App(props) {
           <View>
             <Text style={{ fontSize: 30, color: Colors.white }}>Cristian Baeza
             </Text>
-            <Text style={{ color: Colors.greyish }}>Web-Dev/React Native Dev</Text>
+            <Text style={{ color: "black" }}>Web-Dev/React Native Dev</Text>
           </View>
         </View>
       </View>
@@ -120,7 +123,7 @@ export default function App(props) {
         </View>
         <View style={{ marginVertical: 8 }}>
           <Text style={{ color: Colors.greyish }}>
-          Currently a full time student doing my last semester at the University of Utah, working full time and attending NuCamp's Full-Stack coding bootcamp. Awarded full scholarship to Code Platoon's full time coding bootcamp starting in January 2021.
+            Currently a full time student doing my last semester at the University of Utah, working full time and attending NuCamp's Full-Stack coding bootcamp. Awarded full scholarship to Code Platoon's full time coding bootcamp starting in January 2021.
           </Text>
         </View>
       </View>
@@ -203,7 +206,14 @@ export default function App(props) {
                   paddingVertical: 10
                 }}
               >
-                <Text style={{ color: Colors.theme }}>View Project</Text>
+                <Button
+                  title="View Project"
+                  type="clear"
+                  titleStyle= {{color: Colors.theme}}
+                  onPress={() => Linking.openURL(project.web)}
+                >
+                  View Project
+                  </Button>
               </View>
             </TouchableOpacity>
           </View>
@@ -252,7 +262,7 @@ export default function App(props) {
             alignItems: 'flex-end'
           }}
         >
-          <Text style={{ color: Colors.greyish }}>PROJECTS DONE</Text>
+          <Text style={{ color: Colors.greyish }}>PROJECTS SEMI-DONE</Text>
           <Text style={{ fontSize: 50, color: Colors.theme }}>10</Text>
         </View>
 
@@ -264,8 +274,8 @@ export default function App(props) {
             alignItems: 'flex-end'
           }}
         >
-          <Text style={{ fontSize: 50, color: Colors.theme }}>32</Text>
-          <Text style={{ color: Colors.greyish }}>HAPPY CLIENTS</Text>
+          <Text style={{ fontSize: 50, color: Colors.theme }}>3,798</Text>
+          <Text style={{ color: Colors.greyish }}>GOOGLE SEARCHES</Text>
         </View>
       </View>
 
@@ -286,26 +296,46 @@ export default function App(props) {
           style={{
             flexDirection: "row",
             justifyContent: "space-between",
-            marginVertical: 8
+            marginVertical: 8,
           }}>
           <Text>Find Me</Text>
         </View>
-        <ScrollView horizontal style={{ marginVertical: 8 }}>
+        <ScrollView horizontal 
+          style={{ 
+            marginVertical: 8, 
+            }}>
+
+
           <Icon
-            name= 'github'
+            name='github'
             type='font-awesome'
             size={30}
-            style={{ color: Colors.theme }}
+            style={{ 
+              color: Colors.theme, 
+              marginLeft: 10, 
+              marginRight: 10 
+            }}
+            onPress={() => Linking.openURL("https://github.com/Cristian-Baeza")}
           />
+
+
           <MaterialCommunityIcons
             name="linkedin"
             size={30}
-            style={{ color: Colors.theme }}
+            style={{ 
+              color: Colors.theme, 
+              marginLeft: 10, 
+              marginRight: 10  
+            }}
+            onPress={() => Linking.openURL("https://www.linkedin.com/in/cristian-baeza-1229b5126/")}
           />
+
+
           <MaterialCommunityIcons
             name='youtube'
             size={30}
             style={{ color: Colors.theme }}
+            onPress={() => Linking.openURL("http://youtube.com")}
           />
         </ScrollView>
       </View>
