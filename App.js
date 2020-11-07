@@ -3,6 +3,7 @@ import React from 'react';
 import { StyleSheet, Text, View, ScrollView, Image, Dimensions, TouchableOpacity, Slider, Linking } from 'react-native';
 import { MaterialCommunityIcons, AntDesign, SimpleLineIcons } from "@expo/vector-icons"
 import { Icon } from 'react-native-elements'
+import * as WebBrowser from 'expo-web-browser';
 
 
 const Layout = {
@@ -35,11 +36,11 @@ const skillIcons = [
 const projects = [
   {
     name: "Gym Website",
-    icon: "airballoon"
+    icon: "dumbbell"
   },
   {
     name: "Mediation App",
-    icon: "microphone"
+    icon: "peace"
   },
   {
     name: "Shopping List",
@@ -119,7 +120,7 @@ export default function App(props) {
         </View>
         <View style={{ marginVertical: 8 }}>
           <Text style={{ color: Colors.greyish }}>
-          Currently a full time student doing my last semester at the University of Utah, working full time and attending NuCamp's Full-Stack coding bootcamp. Accepted into CodePlatoon's full time coding bootcamp starting in January 2021.
+          Currently a full time student doing my last semester at the University of Utah, working full time and attending NuCamp's Full-Stack coding bootcamp. Awarded full scholarship to Code Platoon's full time coding bootcamp starting in January 2021.
           </Text>
         </View>
       </View>
